@@ -1,0 +1,16 @@
+﻿Build started 4/22/2015 12:33:55 PM.
+     1>Project "E:\IT COURSE 2014-15 (PART 3)\PROG 2100\Assignment4\Assignment4\Assignment4.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>e:\it course 2014-15 (part 3)\prog 2100\assignment4\assignment4\source.cpp(56): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\it course 2014-15 (part 3)\prog 2100\assignment4\assignment4\source.cpp(59): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\it course 2014-15 (part 3)\prog 2100\assignment4\assignment4\source.cpp(87): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\IT COURSE 2014-15 (PART 3)\PROG 2100\Assignment4\Debug\Assignment4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\IT COURSE 2014-15 (PART 3)\PROG 2100\Assignment4\Debug\Assignment4.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\IT COURSE 2014-15 (PART 3)\PROG 2100\Assignment4\Debug\Assignment4.lib" /MACHINE:X86 Debug\Source.obj
+         Assignment4.vcxproj -> E:\IT COURSE 2014-15 (PART 3)\PROG 2100\Assignment4\Debug\Assignment4.exe
+     1>Done Building Project "E:\IT COURSE 2014-15 (PART 3)\PROG 2100\Assignment4\Assignment4\Assignment4.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.83

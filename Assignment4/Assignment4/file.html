@@ -1,0 +1,111 @@
+<PRE>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;conio.h&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+class fileParser
+{
+public:
+
+	//*****************READING THE CPP FILE**********************
+
+	static vector&lt;string&gt; fileParser::getCppFileArray(string filePath) //input string 
+	{
+		vector&lt;string&gt; file; //array of strings
+		string line;
+		try
+		{
+			ifstream myfile(filePath);
+			if (myfile.is_open())
+			{
+				while (!myfile.eof())
+				{
+					getline(myfile, line);//get line from file assign to str
+					file.push_back(line); //adding the line to the array ...using "push_back"
+
+				}
+			}
+			else
+			{
+				throw runtime_error("file reading error");
+			}
+		}
+		catch (...)
+		{
+			cout &lt;&lt; "file reading error" &lt;&lt; endl;
+		}
+		return file;
+	}
+
+	//method that is returning an array which replaces chevorons
+	static vector&lt;string&gt; fileParser::replaceChev(vector&lt;string&gt; file)
+	{
+		for (int line = 0; line &lt; file.size(); line++) //loop for each line
+		{
+			string tempLine; //temp line to hold chevoron replacement line
+			for (int character = 0; character &lt; file[line].length(); character++) // loop for each character
+			{
+				switch (file[line].at(character)) //switch case comes in and looks for characters and symbols
+				{
+				case '&lt;': tempLine += "&lt;"; //when it hits this  "&lt;" change to &lt
+					break;
+				case '&gt;': tempLine += "&gt;";//when it hits this "&gt;" change to &gt
+					break;
+				default: tempLine += file[line].at(character);//if neither chevrons are found...add character that is already there
+					break;
+				}
+			}
+			file[line] = tempLine; //make the file equal to the new temp line
+		}
+		return file; //retyrn output
+	}
+
+
+	//*****************WRITING THE HTML FILE**********************
+	static void fileParser::writeHtml(vector&lt;string&gt; file, string filePath)
+	{
+		try
+		{
+			ofstream HtmlFile(filePath);
+			if (HtmlFile.is_open())
+			{
+				HtmlFile &lt;&lt; "&lt;PRE&gt;";
+				for (int line = 0; line &lt; file.size(); line++) //loop for each line
+				{
+					HtmlFile &lt;&lt; file[line] &lt;&lt; "&lt;br&gt;";
+				}
+				HtmlFile &lt;&lt; "&lt;/PRE&gt;";
+			}
+			//if the file cant be opened, it produces an error
+			else
+			{
+				throw runtime_error("file writing error");
+			}
+		}
+		catch (...)
+		{
+			cout &lt;&lt; "file writing error" &lt;&lt; endl; //displays the error on screen
+		}
+	}
+};
+
+//******************GETTING THE USER INPUTS*****************
+int main()
+{
+	string input, output;
+	cout &lt;&lt; "Please enter cpp file name" &lt;&lt; endl;
+	cin &gt;&gt; input;
+	cout &lt;&lt; "Please enter html file name" &lt;&lt; endl;
+	cin &gt;&gt; output;
+
+	//write an html file after replacing all the chevs in a cpp file (the cpp contents are held in array)
+	fileParser::writeHtml(fileParser::replaceChev(fileParser::getCppFileArray(input)), output); 
+	cout &lt;&lt; "conversion is a success" &lt;&lt; endl;
+	_getch();
+	return 0;
+}//end main
+</PRE>
